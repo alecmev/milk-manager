@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 11.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="11.0">
+ <Targets>
+  <Target Name="D:\stuff\work\random\NotEdible\wp-toolkit\Bin\WP8\Debug\Microsoft.Phone.Controls.Toolkit.dll">
+   <Modules>
+    <Module Name="microsoft.phone.controls.toolkit.dll">
+     <Namespaces>
+      <Namespace Name="Microsoft.Phone.Controls">
+       <Types>
+        <Type Name="DateTimePickerBase" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#OnFrameNavigated(System.Object,System.Windows.Navigation.NavigationEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2012-11-28 20:22:51Z" FixCategory="NonBreaking">
+             <Issue Name="Local" Certainty="95" Level="Warning" Path="d:\stuff\work\random\NotEdible\wp-toolkit\Microsoft.Phone.Controls.Toolkit\DateTimePickers" File="DateTimePickerBase.cs" Line="319">'page', a variable, is cast to type 'DatePickerPage' multiple times in method 'DateTimePickerBase.OnFrameNavigated(object, NavigationEventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant isint instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="Windows.Devices.Geolocation">
+       <Types>
+        <Type Name="GeocoordinateExtensions" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ToGeoCoordinate(Windows.Devices.Geolocation.Geocoordinate)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="TransparencyAnnotationsShouldNotConflictFxCopRule" Category="Microsoft.Security" CheckId="CA2136" Status="Active" Created="2012-11-28 20:22:51Z" FixCategory="NonBreaking">
+             <Issue Name="CriticalMarkedSafeCritical" Certainty="50" Level="Warning" Path="d:\stuff\work\random\NotEdible\wp-toolkit\Microsoft.Phone.Controls.Toolkit.WP8\Maps" File="GeocoordinateExtensions.cs" Line="30">'GeocoordinateExtensions.ToGeoCoordinate(this Geocoordinate)', a security critical member, is marked with a safe-critical annotation.  This annotation should be removed.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+   <Name>Do not cast unnecessarily</Name>
+   <Description>Avoid duplicate casts where possible, since there is a cost associated with them.</Description>
+   <Resolution Name="Local">{0}, a variable, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182271(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="performancerules.dll" Version="11.0.0.0" />
+  </Rule>
+  <Rule TypeName="TransparencyAnnotationsShouldNotConflictFxCopRule" Category="Microsoft.Security" CheckId="CA2136">
+   <Name>Members should not have conflicting transparency annotations</Name>
+   <Description>Transparency attributes are applied from larger scopes inward.  For instance, if a type is marked as entirely security critical, than all methods introduced by the type will also be security critical.  Members should not have transparency annotations which conflict with larger scoped annotations, as these smaller scoped annotations will be ignored by the CLR and can be misleading during a code review.  Methods not introduced by their type, such as virtual methods being overridden from a base type or interface methods being implemented, do have their annotations considered under the level 2 security rule set and are not considered by this rule.</Description>
+   <Resolution Name="CriticalMarkedSafeCritical">{0}, a security critical member, is marked with a safe-critical annotation.  This annotation should be removed.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264493(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">Warning</MessageLevel>
+   <File Name="securitytransparencyrules.dll" Version="4.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

@@ -1,0 +1,66 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="NotEdible.ProductPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="clr-namespace:NotEdible"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True"
+    shell:SystemTray.Opacity="0">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneAccentDarkBrush}">
+
+        <StackPanel>
+
+            <TextBlock
+                x:Name="HeaderTitle"
+                Grid.Row="1"
+                Text="PRODUCT NAME"
+                FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                FontSize="{StaticResource PhoneFontSizeMedium}"
+                Foreground="{StaticResource PhoneForegroundBrush}"
+                Margin="24, 48, 24, 0"/>
+
+            <TextBox x:Name="ProductName" Margin="24, 24, 24, 0" />
+
+        </StackPanel>
+
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.8">
+            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/White/check.png" Text="done" Click="SaveClick"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/Icons/White/cancel.png" Text="cancel" Click="CancelClick" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+</phone:PhoneApplicationPage>
